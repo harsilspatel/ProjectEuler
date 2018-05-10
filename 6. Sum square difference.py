@@ -7,4 +7,7 @@
 #print(sumOfFirst(100)**2 - sumOfSquaresOfFirst(100))
 
 
-print(sum(i for i in range(1, 101))**2 - sum(i**2 for i in range(1,101)))
+#print(sum(i for i in range(1, 101))**2 - sum(i**2 for i in range(1,101)))
+
+n = 100
+print(((n*(n+1)//2)**2) - n*(n+1)*(2*n+1)//6)
