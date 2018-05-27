@@ -1,0 +1,38 @@
+def pentagonal(n):
+	return n*(3*n-1)//2
+	
+#upperLimit = 10**3
+#
+#pentagonalNumbers = {}
+#for i in range(1, pentagonal(upperLimit)):
+#	pentagonalNumbers[i] = False
+#
+#pentagons = [pentagonal(i) for i in range(1, upperLimit)]
+#for i in pentagons:
+#	pentagonalNumbers[i] = True
+#
+#for i in range(len(pentagons)):
+#	a = pentagons[i]
+#	for j in range(i + 1, len(pentagons)):
+#		b = pentagons[j]
+##		print(a,b)
+#		if pentagonalNumbers[abs(a - b)] and pentagonalNumbers[a + b]:
+#			print(a, b, a+b, abs(a-b))
+#			break
+
+def isPentagon(n):
+	return (((24*n + 1)**(1/2) + 1) / 6) % 1.0 == 0
+
+pentagonalNumbers = [1, 5]
+notFound = True
+i = 2
+while notFound:
+	i += 1
+	nextPentagon = pentagonal(i)
+	pentagonalNumbers.append(nextPentagon)
+	
+	for i in range(len(pentagonalNumbers) - 1):
+		if isPentagon(nextPentagon + pentagonalNumbers[i]) and isPentagon(nextPentagon - pentagonalNumbers[i]):
+			print(nextPentagon, pentagonalNumbers[i], nextPentagon - pentagonalNumbers[i])
+			notFound = False
+			break
